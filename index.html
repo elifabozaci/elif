@@ -1,6 +1,48 @@
+<!DOCTYPE html>
+<html>
 <head>
     <title>Your Adventure Story</title>
-
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: "Times New Roman", serif;
+            text-align: center;
+        }
+        h1 {
+            font-family: "Chiller", sans-serif;
+            font-size: 36px;
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .input-container input {
+            margin: 10px;
+            padding: 5px;
+        }
+        #story-container {
+            display: none;
+        }
+        #hikayeyi-olustur {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        #timer {
+            font-size: 12px;
+            margin-top: 20px;
+        }
+        #footer {
+            font-size: 10px;
+            margin-top: 20px;
+	    }    
     </style>
 </head>
 
@@ -44,13 +86,12 @@
         <button id="hikayeyi-olustur">Hikayeyi Oluştur</button>
     </div>
 
-
-    </div>
-
     <div id="story-container">
         <!-- Story content will be added here dynamically -->
     </div>
-	@@ -104,27 +41,97 @@ <h1>Elif'in dünyasına hoşgeldin</h1>
+
+    <div id="timer">
+	    
     </div>
 
     <script>
