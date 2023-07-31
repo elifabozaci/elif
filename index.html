@@ -7,29 +7,66 @@
         body {
             background-color: black;
             color: white;
-            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-family: "Old English Text MT", sans-serif;
             text-align: center;
+        }
+
+        h1 {
+            font-family: "Chiller", sans-serif;
+            font-size: 36px;
+        }
+
+        #timer {
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+        #footer {
+            font-size: 10px;
+            margin-top: 20px;
+        }
+
+        #hearts {
+            font-size: 24px;
+            color: red;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
     </style>
 </head>
 
 <body>
     <h1>Elif'in dünyasına hoşgeldin</h1>
-    <p>Merhaba! Bu web sitesinde senin için bir macera hikayesi yaratmak için bazı sorular soracağız.</p>
+    <p>Bilgisayarına virüs bulaştırıp, banka bilgilerini ele geçirip, adına şirket açıp, 
+        iflas ettirip aileni uçakla Etiyopya'ya göndermem için aşağıdaki sorulara cevap vermen yeterli</p>
 
     <script>
         // JavaScript code to prompt the user for inputs and fill in the story
         var name1 = prompt("Adınızı giriniz:");
-        var name2 = prompt("Tanıdığınız birinin adını giriniz:");
-        var destination = prompt("Memleketiniz veya sevdiğiniz bir şehir adı giriniz:");
-        var favoriteColor = prompt("Favori renginiz:");
-        var favoriteDrink = prompt("Sevdiğiniz bir içeceğin adını giriniz:");
+        var name2 = prompt("Başka bir isim giriniz:");
+        var destination = prompt("Bir yer ismi giriniz:");
+        var favoriteColor = prompt("En sevdiğiniz rengi giriniz:");
+        var favoriteDrink = prompt("Bir içecek türü giriniz:");
+        var birsayi = prompt("Bir sayı giriniz:");
 
         // Fill in the story with the user's inputs
         document.body.innerHTML += `<h2>Öykü 1: Hayalinizdeki Yere Uçan Macera</h2>
-        <p>Bir zamanlar, ${name1} ve ${name2} heyecan verici bir maceraya çıkmaya karar verdiler. Hem de
-        gittikleri yer, ${destination}, onların ikisinin de çok sevdiği bir şehirdi. Ve daha da iyisi,
-        bunu favori rengi ${favoriteColor}'da boyanmış bir uçakla yapmayı planladılar!</p>
+        <p>Bir zamanlar, ${name1} ve ${name2} çorba içmek için ${destination}'a gitmeye karar vermişler. Bunun için
+        saat ${birsayi} olduğunda Sabiha Gökçen'e doğru yola çıkmışlar, aileleri ile vedalaşıp ${favoriteColor} renkli uçağa
+        atlamışlar. 
     
         <p>Uçak gökyüzünde süzülürken, ikisi de önlerindeki yolculuktan dolayı heyecanlı hissediyorlardı.</p>
     
@@ -46,7 +83,10 @@
     
         <p>Son... Ya da daha heyecanlı maceraların başlangıcı mı?</p>`;
 
-    </script>
-</body>
-
-</html>
+        // Calculate time spent on the website
+        var startTime = new Date();
+        window.onbeforeunload = function () {
+            var endTime = new Date();
+            var timeSpent = (endTime - startTime) / 1000;
+            document.getElementById("timer").innerHTML = `Hayatının ${timeSpent} kadarını sitemde israf ettiğin için teşekkür ederim.`;
+        };
