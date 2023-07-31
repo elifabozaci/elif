@@ -12,7 +12,7 @@
         }
 
         h1 {
-            font-family: "Chiller", sans-serif;
+            font-family: "Times New Roman", serif;
             font-size: 36px;
         }
 
@@ -118,12 +118,11 @@
             document.getElementById("story-container").style.display = "block";
 
             // Fill in the story with the user's inputs
-            document.getElementById("story-container").innerHTML = `<h2>Öykü 1: Hayalinizdeki Yere Uçan Macera</h2>
-            <p>Bir zamanlar, ${name1} ve ${name2} çorba içmek için ${destination}'a gitmeye karar vermişler. Bunun için
-            saat ${birsayi} olduğunda Sabiha Gökçen'e doğru yola çıkmışlar, aileleri ile vedalaşıp ${favoriteColor} renkli uçağa
-            atlamışlar. 
+            document.getElementById("story-container").innerHTML = `
+            <p>Bir zamanlar, ${name1} ve ${name2} çorba içmek için ${destination}'a gitmeye karar vermişler. Bunun için Sabiha Gökçen'e gidip ${favoriteColor} renkli uçağa
+            binmişler. Uçak ${birsayi} saat uçtuktan sonra arızalanmış, ${name1} ve ${name2} uçaktan paraşütle atlamaya karar vermişler. Paraşütle atlayan ikili maalesef bir
+            ${favoriteDrink} nehrine düşmüşler. Nehirde boğulmamak için var güçleri ile yüzmeleri gerekiyormuş ama çok fazla ${favoriteDrink} içinde kalmaktan buruşmuşlar
         
-            <p>Uçak gökyüzünde süzülürken, ikisi de önler
 
             <!-- Add the rest of the story here -->`;
 
@@ -144,8 +143,9 @@
         // Update timer every second
         setInterval(function() {
             var currentTime = new Date();
-            var timeSpent = (currentTime - startTime) / 1000;
-            document.getElementById("timer").innerHTML = `Hayatının ${timeSpent} kadarını sitemde israf ettiğin için teşekkür ederim.`;
+            var timeSpentSeconds = (currentTime - startTime) / 1000;
+            var timeSpentMinutes = (timeSpentSeconds / 60).toFixed(1); // Calculate time spent in minutes with 1 decimal place
+            document.getElementById("timer").innerHTML = `Hayatının ${timeSpentMinutes} dakikasını sitemde israf ettiğin için teşekkür ederim.`;
         }, 1000);
 
     </script>
