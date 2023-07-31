@@ -141,6 +141,13 @@
             generateStory(); // Call the generateStory function
         });
 
+        // Update timer every second
+        setInterval(function() {
+            var currentTime = new Date();
+            var timeSpent = (currentTime - startTime) / 1000;
+            document.getElementById("timer").innerHTML = `Hayatının ${timeSpent} kadarını sitemde israf ettiğin için teşekkür ederim.`;
+        }, 1000);
+
     </script>
 </body>
 
