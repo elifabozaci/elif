@@ -7,7 +7,7 @@
         body {
             background-color: black;
             color: white;
-            font-family: "Old English Text MT", sans-serif;
+            font-family: "Times New Roman", serif;
             text-align: center;
         }
 
@@ -27,6 +27,19 @@
         .input-container input {
             margin: 10px;
             padding: 5px;
+        }
+
+        #story-container {
+            display: none;
+        }
+
+        #hikayeyi-olustur {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
         }
 
         #timer {
@@ -79,11 +92,15 @@
         <input type="text" id="favoriteDrink">
         <label for="birsayi">Bir sayı giriniz:</label>
         <input type="number" id="birsayi">
-        <button onclick="generateStory()">Hikayeyi Oluştur</button>
+        <button id="hikayeyi-olustur">Hikayeyi Oluştur</button>
     </div>
 
-    <div id="story-container" style="display: none;">
+    <div id="story-container">
         <!-- Story content will be added here dynamically -->
+    </div>
+
+    <div id="timer">
+        <!-- Timer will be shown here -->
     </div>
 
     <script>
@@ -106,29 +123,24 @@
             saat ${birsayi} olduğunda Sabiha Gökçen'e doğru yola çıkmışlar, aileleri ile vedalaşıp ${favoriteColor} renkli uçağa
             atlamışlar. 
         
-            <p>Uçak gökyüzünde süzülürken, ikisi de önlerindeki yolculuktan dolayı heyecanlı hissediyorlardı.</p>
-        
-            <h2>Beklenmedik Bir Dönemeç</h2>
-            <p>Ancak kader, onlar için farklı bir plan yapmıştı. Uçakta beklenmedik teknik sorunlar yaşandı
-            ve acil bir iniş yapmak zorunda kaldılar.</p>
-        
-            <p>Neyse ki, yakınlarda favori içeceği ${favoriteDrink}'dan oluşan sihirli bir nehir buldular! Kararlılıkla
-            yüreklerinde, hayal ettikleri yerlere ulaşmak için nehirde yüzerek bir adım attılar.</p>
-        
-            <h2>Muhteşem Varış</h2>
-            <p+Yorucu bir yüzüşün ardından, sonunda ${destination}'e ulaştılar. Beklenmedik olaylar zinciri
-            yaşadıkları için şükran doluydular. Çünkü yaşadıkları bu unutulmaz macerayı asla unutmayacaklardı.</p>
-        
-            <p>Son... Ya da daha heyecanlı maceraların başlangıcı mı?</p>`;
-        }
+            <p>Uçak gökyüzünde süzülürken, ikisi de önler
 
-        // Calculate time spent on the website
-        var startTime = new Date();
-        window.onbeforeunload = function () {
+            <!-- Add the rest of the story here -->`;
+
+            // Calculate time spent on the website
             var endTime = new Date();
             var timeSpent = (endTime - startTime) / 1000;
             document.getElementById("timer").innerHTML = `Hayatının ${timeSpent} kadarını sitemde israf ettiğin için teşekkür ederim.`;
-        };
+        }
+
+        var startTime; // Declare startTime outside the function to make it global
+
+        // Listen for button click event
+        document.getElementById("hikayeyi-olustur").addEventListener("click", function() {
+            startTime = new Date(); // Set startTime when the button is clicked
+            generateStory(); // Call the generateStory function
+        });
+
     </script>
 </body>
 
