@@ -53,19 +53,21 @@
     <div class="input-container" id="input-container">
         <label for="isim1">İsminiz:</label>
         <input type="text" id="isim1" required>
-        <label for="meslek1">Bir meslek:</label>
+	<label for="isim2">Bir isim daha giriniz:</label>
+        <input type="text" id="isim2" required>
+	<label for="isim3">Başka bir isim daha giriniz:</label>
+        <input type="text" id="isim3" required>
+        <label for="meslek1">Bir meslek (ör. mühendis, polis):</label>
         <input type="text" id="meslek1" required>
-        <label for="rastgelecumle1">Bir rastgele cümle:</label>
-        <input type="text" id="rastgelecumle1" required>
-        <label for="hayvan1">Bir hayvan adı:</label>
+	<label for="meslek2">Bir meslek daha (ör. mühendis, polis):</label>
+        <input type="text" id="meslek2" required>
+        <label for="hayvan1">Bir hayvan:</label>
         <input type="text" id="hayvan1">
-        <label for="renk1">Bir renk adı:</label>
+        <label for="renk1">Bir renk:</label>
         <input type="text" id="renk1">
         <label for="eşya1">Bir eşya adı:</label>
         <input type="text" id="eşya1">
-        <label for="hobi">Bir hobi adı:</label>
-        <input type="text" id="hobi">
-        <label for="aileüyesi1">Bir aile üyesinin adı:</label>
+        <label for="aileüyesi1">Bir aile üyesi (ör. anne, baba):</label>
         <input type="text" id="aileüyesi1">
         <label for="içecek1">Bir içecek adı:</label>
         <input type="text" id="içecek1">
@@ -77,11 +79,11 @@
         <input type="text" id="kıyafet1">
         <label for="yiyecek1">Bir yiyecek adı:</label>
         <input type="text" id="yiyecek1">
-        <label for="rastgelecumle2">Bir rastgele cümle:</label>
+        <label for="cümle1">Rastgele bir cümle giriniz:</label>
         <input type="text" id="rastgelecumle2">
-        <label for="rastgelecumle3">Bir rastgele cümle:</label>
+        <label for="cümle2">Bir cümle daha giriniz:</label>
         <input type="text" id="rastgelecumle3">
-        <label for="rastgelecumle4">Bir rastgele cümle:</label>
+        <label for="cümle3">Bir cümle daha giriniz:</label>
         <input type="text" id="rastgelecumle4">
         <button id="hikayeyi-olustur">Hikayeyi Oluştur</button>
     </div>
@@ -95,18 +97,7 @@
     </div>
 
     <script>
-        // Function to generate the story randomly
-        function generateStory() {
-            // JavaScript code to get user inputs
-            var isim1 = document.getElementById("isim1").value;
-            var isim2 = document.getElementById("isim2").value;
-            var şehir1 = document.getElementById("şehir1").value;
-            var renk1 = document.getElementById("renk1").value;
-            var içecek1 = document.getElementById("içecek1").value;
-            // Get more inputs as needed
-
-            // Define the stories
-            // Function to generate the story
+        
 function generateStory() {
     // JavaScript code to get user inputs and fill in the story
     var isim1 = document.getElementById("isim1").value;
