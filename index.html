@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-
 <head>
     <title>Your Adventure Story</title>
-    <style>
-        /* Your CSS styles remain the same */
+
     </style>
 </head>
 
@@ -13,50 +9,51 @@
     <p>Bilgisayarına virüs bulaştırıp, banka bilgilerini ele geçirip, adına şirket açıp, iflas ettirip aileni uçakla Etiyopya'ya göndermem için aşağıdaki sorulara cevap vermen yeterli</p>
 
     <div class="input-container" id="input-container">
-        <label for="isim1">Adınızı giriniz:</label>
-        <input type="text" id="isim1">
-        <label for="isim2">Başka bir isim giriniz:</label>
-        <input type="text" id="isim2">
-        <label for="şehir1">Bir şehir ismi giriniz:</label>
-        <input type="text" id="şehir1">
-        <label for="renk1">Bir renk ismi:</label>
+        <label for="isim1">İsminiz:</label>
+        <input type="text" id="isim1" required>
+        <label for="meslek1">Bir meslek:</label>
+        <input type="text" id="meslek1" required>
+        <label for="rastgelecumle1">Bir rastgele cümle:</label>
+        <input type="text" id="rastgelecumle1" required>
+        <label for="hayvan1">Bir hayvan adı:</label>
+        <input type="text" id="hayvan1">
+        <label for="renk1">Bir renk adı:</label>
         <input type="text" id="renk1">
-        <label for="içecek1">Bir içecek ismi giriniz:</label>
+        <label for="eşya1">Bir eşya adı:</label>
+        <input type="text" id="eşya1">
+        <label for="hobi">Bir hobi adı:</label>
+        <input type="text" id="hobi">
+        <label for="aileüyesi1">Bir aile üyesinin adı:</label>
+        <input type="text" id="aileüyesi1">
+        <label for="içecek1">Bir içecek adı:</label>
         <input type="text" id="içecek1">
-        <!-- Add more input elements here as needed -->
-        <button id="biraz-daha-eglence">Biraz daha eğlence</button>
+        <label for="şehir1">Bir şehir adı:</label>
+        <input type="text" id="şehir1">
+        <label for="sayı1">Bir sayı:</label>
+        <input type="number" id="sayı1">
+        <label for="kıyafet1">Bir kıyafet adı:</label>
+        <input type="text" id="kıyafet1">
+        <label for="yiyecek1">Bir yiyecek adı:</label>
+        <input type="text" id="yiyecek1">
+        <label for="rastgelecumle2">Bir rastgele cümle:</label>
+        <input type="text" id="rastgelecumle2">
+        <label for="rastgelecumle3">Bir rastgele cümle:</label>
+        <input type="text" id="rastgelecumle3">
+        <label for="rastgelecumle4">Bir rastgele cümle:</label>
+        <input type="text" id="rastgelecumle4">
         <button id="hikayeyi-olustur">Hikayeyi Oluştur</button>
     </div>
 
-    <div class="input-container" id="optional-inputs" style="display: none;">
-        <!-- Optional inputs will be added here dynamically -->
+
     </div>
 
     <div id="story-container">
         <!-- Story content will be added here dynamically -->
     </div>
-
-    <div id="timer">
-        <!-- Timer will be shown here -->
+	@@ -104,27 +41,97 @@ <h1>Elif'in dünyasına hoşgeldin</h1>
     </div>
 
     <script>
-        // Function to reveal the next optional input box
-        function revealNextOptionalInput() {
-            var optionalInputs = document.querySelectorAll("#optional-inputs input");
-            for (var i = 0; i < optionalInputs.length; i++) {
-                if (optionalInputs[i].style.display === "none") {
-                    optionalInputs[i].style.display = "block";
-                    break;
-                }
-            }
-        }
-
-        // Listen for button click event to reveal the next optional input
-        document.getElementById("biraz-daha-eglence").addEventListener("click", function() {
-            revealNextOptionalInput();
-        });
-
         // Function to generate the story randomly
         function generateStory() {
             // JavaScript code to get user inputs
@@ -124,7 +121,7 @@ function generateStory() {
         ${isim2} birkaç kurabiye satın alarak Salih bey ve ${aile1}sine biraz ${yiyecek1} ikram etti. Çok güzel bir gün olacağa benziyordu, 
         çocuklar sokakta hep bir ağızdan ${cümle2} diyerek koşturuyorlardı, ${isim2} onlara da ${yiyecek1} ikram ediyordu. Herkes çok mutluydu.`, 
     ];
-    
+
 
             // Randomly choose a story
             var randomIndex = Math.floor(Math.random() * stories.length);
@@ -135,10 +132,7 @@ function generateStory() {
 
             // Calculate time spent on the website
             var endTime = new Date();
-            var timeSpent = (endTime - startTime) / 1000;
-            document.getElementById("timer").innerHTML = `Hayatının ${timeSpent} kadarını sitemde israf ettiğin için teşekkür ederim.`;
-        }
-
+	@@ -135,20 +142,20 @@ <h1>Elif'in dünyasına hoşgeldin</h1>
         var startTime; // Declare startTime outside the function to make it global
 
         // Listen for button click event
@@ -158,4 +152,3 @@ function generateStory() {
 </body>
 
 </html>
-
