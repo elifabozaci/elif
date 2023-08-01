@@ -26,32 +26,61 @@
         #userInput {
             width: 100%;
             padding: 5px;
+            font-size: 14px;
         }
         button {
             margin-top: 10px;
+            background-color: purple;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
         }
     </style>
 </head>
 <body>
     <div id="chat-container">
-        <img src="https://media.licdn.com/dms/image/D4D03AQGK_6PkDFZDQA/profile-displayphoto-shrink_800_800/0/1664648684467?e=2147483647&v=beta&t=sC6Iofh9fLtBdEVosfPUrGKHTpbRKJ0RKb-0Prn-NOQ" alt="Your Picture" style="width: 200px; height: 200px; border-radius: 50%;">
+        <img src="https://media.licdn.com/dms/image/D4D03AQGK_6PkDFZDQA/profile-displayphoto-shrink_800_800/0/1664648684467?e=2147483647&v=beta&t=sC6Iofh9fLtBdEVosfPUrGKHTpbRKJ0RKb-0Prn-NOQ" alt="Your Picture">
         <div id="chatbox">
-            <p>Chatbot: Merhaba, ben Elif</p>
+            <p>Elif: Merhaba, ben Elif</p>
         </div>
         <input type="text" id="userInput" placeholder="Type your message...">
-        <button onclick="sendMessage()">Send</button>
+        <button onclick="sendMessage()">Submit</button>
     </div>
 
     <script>
         // Define the chatbot responses in Turkish
         const chatbotResponses = [
             { user: "selam", response: "Selam" },
+            { user: "Merhaba", response: "Merhabaa" },
+            { user: "selamm", response: "Selam" },
+            { user: "Merhabaa", response: "Merhabaa" },
+            { user: "Merhaba Elif", response: "Merhaba canım" },
+            { user: "seni seviyorum", response: "külliyen yalan" },
+            { user: "naber", response: "hiiç, senden naber" },
+            { user: "beni seviyor musun?", response: "yoo, ben kimseyi sevmem" },
+            { user: "beni seviyormusun?", response: "yoo, ben kimseyi sevmem" },
+            { user: "beni seviyomusun?", response: "yoo, ben kimseyi sevmem" },
+            { user: "beni seviyonmu?", response: "yoo, ben kimseyi sevmem" },
+            { user: "beni seviyon mu?", response: "yoo, ben kimseyi sevmem" },
+            { user: "beni seviyor musun", response: "yoo, ben kimseyi sevmem" },
+            { user: "beni seviyormusun", response: "yoo, ben kimseyi sevmem" },
+            { user: "beni seviyomusun", response: "yoo, ben kimseyi sevmem" },
+            { user: "beni seviyonmu", response: "yoo, ben kimseyi sevmem" },
+            { user: "beni seviyon mu", response: "yoo, ben kimseyi sevmem" },
             { user: "nasılsın", response: "İdare eder ya, sen nasılsın?" },
             { user: "iyiyim", response: "İyi, hep iyi olursun umarım" },
             { user: "görüşürüz", response: "Gitmeee" },
             { user: "anneni sikerim", response: "Siktir git kapat siteyi, küfür etmeye mi geldin" },	
             { user: "hayatın amacı nedir?", response: "Hiçbir şey" },
             { user: "görüşürüz", response: "Gitmeee" },
+            { user: "işsiz", response: "sensin işsiz" },
+            { user: "bok", response: "bok bok bok" },
             { user: "parles-tu français", response: "Oui, je parle français!" },
             { user: "comment as-tu appris le français?", response: "Je l'ai appris au lycée" }
             // Add more responses here as needed
