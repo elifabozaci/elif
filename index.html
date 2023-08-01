@@ -1,84 +1,96 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Adventure Story</title>
+    <title>Chatbot Example</title>
     <style>
-        /* Your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: black;
+            color: white;
+        }
+        #chat-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #chatbox {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px;
+            height: 400px;
+            overflow-y: scroll;
+        }
+        #userInput {
+            width: 100%;
+            padding: 5px;
+        }
+        button {
+            margin-top: 10px;
+        }
     </style>
 </head>
-
 <body>
-    <h1>Elif'in dünyasına hoşgeldin</h1>
-    <p>Bilgisayarına virüs bulaştırıp, banka bilgilerini ele geçirip, adına şirket açıp, iflas ettirip aileni uçakla Etiyopya'ya göndermem için aşağıdaki sorulara cevap vermen yeterli</p>
-
-    <div class="input-container" id="input-container">
-        <label for="isim1">İsminiz:</label>
-        <input type="text" id="isim1" required>
-        <label for="isim2">Bir isim daha giriniz:</label>
-        <input type="text" id="isim2" required>
-        <label for="meslek1">Bir meslek (ör. mühendis, polis):</label>
-        <input type="text" id="meslek1" required>
-        <label for="hayvan1">Bir hayvan:</label>
-        <input type="text" id="hayvan1" required>
-        <label for="şehir1">Bir şehir adı:</label>
-        <input type="text" id="şehir1" required>
-        <button id="hikayeyi-olustur">Hikayeyi Oluştur</button>
-    </div>
-
-    <div id="story-container">
-        <!-- Story content will be added here dynamically -->
-    </div>
-
-    <div id="timer">
-	    
+    <div id="chat-container">
+        <img src="https://media.licdn.com/dms/image/D4D03AQGK_6PkDFZDQA/profile-displayphoto-shrink_800_800/0/1664648684467?e=2147483647&v=beta&t=sC6Iofh9fLtBdEVosfPUrGKHTpbRKJ0RKb-0Prn-NOQ" alt="Your Picture" style="width: 200px; height: 200px; border-radius: 50%;">
+        <div id="chatbox">
+            <p>Chatbot: Merhaba, ben Elif</p>
+        </div>
+        <input type="text" id="userInput" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
     </div>
 
     <script>
-        function generateStory() {
-            var isim1 = document.getElementById("isim1").value;
-            var isim2 = document.getElementById("isim2").value;
-            var meslek1 = document.getElementById("meslek1").value;
-            var hayvan1 = document.getElementById("hayvan1").value;
-            var şehir1 = document.getElementById("şehir1").value;
+        // Define the chatbot responses in Turkish
+        const chatbotResponses = [
+            { user: "selam", response: "Selam" },
+            { user: "nasılsın", response: "İdare eder ya, sen nasılsın?" },
+            { user: "iyiyim", response: "İyi, hep iyi olursun umarım" },
+            { user: "görüşürüz", response: "Gitmeee" },
+            { user: "anneni sikerim", response: "Siktir git kapat siteyi, küfür etmeye mi geldin" },	
+            { user: "hayatın amacı nedir?", response: "Hiçbir şey" },
+            { user: "görüşürüz", response: "Gitmeee" },
+            { user: "parles-tu français", response: "Oui, je parle français!" },
+            { user: "comment as-tu appris le français?", response: "Je l'ai appris au lycée" }
+            // Add more responses here as needed
+        ];
 
-            // Create an array of stories
-            var stories = [
-                `Bir zamanlar, ${isim1} ve ${isim2} çorba içmek için ${şehir1}'a gitmeye karar vermişler. 
-                Bunun için Sabiha Gökçen'e gidip ${meslek1} olarak çalışan bir pilotun kullandığı ${hayvan1} şeklinde bir uçağa binmişler. 
-                Uçak havalanırken etrafta muhteşem ${şehir1} manzaraları gördüler ve harika vakit geçirdiler.`,
-                `${isim1}, ${şehir1} adlı şehirde çok ünlü bir ${meslek1} olmuş ve herkes onun hayvan sevgisinden bahsedermiş. 
-                Bir gün ${isim2} onu ziyarete gelmiş ve yanında sevimli bir ${hayvan1} getirmiş. İkisi birlikte ${şehir1} sokaklarında keyifli bir gezi yapmışlar.`
-            ];
-
-            // Randomly choose a story
-            var randomIndex = Math.floor(Math.random() * stories.length);
-            var randomStory = stories[randomIndex];
-
-            // Fill in the story with the user's inputs
-            document.getElementById("story-container").innerHTML = randomStory;
-
-            // Calculate time spent on the website
-            var endTime = new Date();
-            var timeSpentSeconds = (endTime - startTime) / 1000;
-            var timeSpentMinutes = (timeSpentSeconds / 60).toFixed(1); // Calculate time spent in minutes with 1 decimal place
-            document.getElementById("timer").innerHTML = `Hayatının ${timeSpentMinutes} dakikasını sitemde israf ettiğin için teşekkür ederim.`;
+        // Function to display a message in the chatbox
+        function displayMessage(message, isUser) {
+            const chatbox = document.getElementById("chatbox");
+            const messageElement = document.createElement("p");
+            messageElement.textContent = message;
+            if (isUser) {
+                messageElement.style.textAlign = "right";
+            }
+            chatbox.appendChild(messageElement);
+            chatbox.scrollTop = chatbox.scrollHeight;
         }
 
-        var startTime; // Declare startTime outside the function to make it global
+        // Function to send and receive messages
+        function sendMessage() {
+            const userInput = document.getElementById("userInput");
+            const userMessage = userInput.value.trim();
+            if (userMessage === "") {
+                return; // Prevent sending empty messages
+            }
+            displayMessage("You: " + userMessage, true);
+            userInput.value = "";
 
-        // Listen for button click event
-        document.getElementById("hikayeyi-olustur").addEventListener("click", function () {
-            startTime = new Date(); // Set startTime when the button is clicked
-            generateStory(); // Call the generateStory function
-        });
-
-        // Update timer every second
-        setInterval(function () {
-            var currentTime = new Date();
-            var timeSpentSeconds = (currentTime - startTime) / 1000;
-            var timeSpentMinutes = (timeSpentSeconds / 60).toFixed(1); // Calculate time spent in minutes with 1 decimal place
-            document.getElementById("timer").innerHTML = `Hayatının ${timeSpentMinutes} dakikasını sitemde israf ettiğin için teşekkür ederim.`;
-        }, 1000);
+            // Check if the user message has a pre-defined response (case-insensitive comparison)
+            const response = chatbotResponses.find(entry => entry.user.toLowerCase() === userMessage.toLowerCase());
+            if (response) {
+                setTimeout(() => {
+                    displayMessage("Chatbot: " + response.response, false);
+                }, 500); // Add a small delay to simulate the chatbot's "typing" time
+            } else {
+                setTimeout(() => {
+                    displayMessage("Chatbot: Anlamadım ki, başka bir şey söylesene? Bebek gibiyim şu an her şeyi anlamıyorum.", false);
+                }, 500);
+            }
+        }
     </script>
 </body>
 </html>
