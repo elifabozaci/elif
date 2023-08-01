@@ -3,46 +3,7 @@
 <head>
     <title>Your Adventure Story</title>
     <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: "Times New Roman", serif;
-            text-align: center;
-        }
-        h1 {
-            font-family: "Chiller", sans-serif;
-            font-size: 36px;
-        }
-        .input-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .input-container input {
-            margin: 10px;
-            padding: 5px;
-        }
-        #story-container {
-            display: none;
-        }
-        #hikayeyi-olustur {
-            background-color: green;
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-        #timer {
-            font-size: 12px;
-            margin-top: 20px;
-        }
-        #footer {
-            font-size: 10px;
-            margin-top: 20px;
-	    }    
+        /* Your CSS styles here */
     </style>
 </head>
 
@@ -53,38 +14,14 @@
     <div class="input-container" id="input-container">
         <label for="isim1">İsminiz:</label>
         <input type="text" id="isim1" required>
-	<label for="isim2">Bir isim daha giriniz:</label>
+        <label for="isim2">Bir isim daha giriniz:</label>
         <input type="text" id="isim2" required>
-	<label for="isim3">Başka bir isim daha giriniz:</label>
-        <input type="text" id="isim3" required>
         <label for="meslek1">Bir meslek (ör. mühendis, polis):</label>
         <input type="text" id="meslek1" required>
-	<label for="meslek2">Bir meslek daha (ör. mühendis, polis):</label>
-        <input type="text" id="meslek2" required>
         <label for="hayvan1">Bir hayvan:</label>
-        <input type="text" id="hayvan1">
-        <label for="renk1">Bir renk:</label>
-        <input type="text" id="renk1">
-        <label for="eşya1">Bir eşya adı:</label>
-        <input type="text" id="eşya1">
-        <label for="aileüyesi1">Bir aile üyesi (ör. anne, baba):</label>
-        <input type="text" id="aileüyesi1">
-        <label for="içecek1">Bir içecek adı:</label>
-        <input type="text" id="içecek1">
+        <input type="text" id="hayvan1" required>
         <label for="şehir1">Bir şehir adı:</label>
-        <input type="text" id="şehir1">
-        <label for="sayı1">Bir sayı:</label>
-        <input type="number" id="sayı1">
-        <label for="kıyafet1">Bir kıyafet adı:</label>
-        <input type="text" id="kıyafet1">
-        <label for="yiyecek1">Bir yiyecek adı:</label>
-        <input type="text" id="yiyecek1">
-        <label for="cümle1">Rastgele bir cümle giriniz:</label>
-        <input type="text" id="rastgelecumle2">
-        <label for="cümle2">Bir cümle daha giriniz:</label>
-        <input type="text" id="rastgelecumle3">
-        <label for="cümle3">Bir cümle daha giriniz:</label>
-        <input type="text" id="rastgelecumle4">
+        <input type="text" id="şehir1" required>
         <button id="hikayeyi-olustur">Hikayeyi Oluştur</button>
     </div>
 
@@ -97,63 +34,21 @@
     </div>
 
     <script>
-      function generateStory() {
-            // JavaScript code to get user inputs and fill in the story
+        function generateStory() {
             var isim1 = document.getElementById("isim1").value;
             var isim2 = document.getElementById("isim2").value;
-            var isim3 = document.getElementById("isim3").value;
             var meslek1 = document.getElementById("meslek1").value;
-            var meslek2 = document.getElementById("meslek2").value;
             var hayvan1 = document.getElementById("hayvan1").value;
-            var renk1 = document.getElementById("renk1").value;
-            var eşya1 = document.getElementById("eşya1").value;
-            var aileüyesi1 = document.getElementById("aileüyesi1").value;
-            var içecek1 = document.getElementById("içecek1").value;
             var şehir1 = document.getElementById("şehir1").value;
-            var sayı1 = document.getElementById("sayı1").value;
-            var kıyafet1 = document.getElementById("kıyafet1").value;
-            var yiyecek1 = document.getElementById("yiyecek1").value;
-            var cümle1 = document.getElementById("rastgelecumle2").value;
-            var cümle2 = document.getElementById("rastgelecumle3").value;
-            var cümle3 = document.getElementById("rastgelecumle4").va
 
-        
-    // Create an array of stories
-         var stories = [
-        // Continue with the rest of the stories
-        `Bir zamanlar, ${isim1} ve ${isim2} çorba içmek için ${şehir1}'a gitmeye karar vermişler. 
-        Bunun için Sabiha Gökçen'e gidip ${renk1} renkli uçağa binmişler. 
-        Uçak ${sayi1} saat uçtuktan sonra arızalanmış, ${isim1} ve ${isim2} uçaktan paraşütle atlamaya karar vermişler. 
-        Paraşütle atlayan ikili maalesef bir ${içecek1} nehrine düşmüşler. Nehirde boğulmamak için var güçleri ile yüzmeleri gerekiyormuş, 
-        ama çok fazla ${içecek1} içinde kalmaktan buruşmuşlar.`,
-        ` ${isim1} bir gün sınıfta otururken sınıfa bir ${meslek1} girmiş, açılın ben ${meslek1}um diye bağırmış, 
-        öğrenciler hep bir ağızdan “aaaa” demiş. ${isim1} ayağa kalkıp ${cümle1} diye bağırmış ve sınıftakiler onu alkış yağmuruna tutmuş. 
-        Bunu gören ${meslek1}’un rengi sinirden ${renk1} olmuş ve sınıftan çıkmış. 
-        Olay esnasında uyuklayan ${isim2} ise uyanıp ${meslek1}in gittiğini görünce koşarak sınıftan çıkıp onu yakalamış, 
-        ${meslek1} ona dönüp “Sen de kimsin?” demiş, ${isim2} ise “Sus!” demiş ve eklemiş ${cümle2}. 
-        ${meslek1} bunu duyunca yüreğine su serpilmiş, ${isim2} bununla yetinmeyip telefonla ${isim1}’in ${meslek2} olan ${aile_üyesi1}sini aramış 
-        ${meslek1}un konuşmasını istemiş, ${meslek1} ve ${meslek2} uzun uzun sohbet edip beraber ${içecek1} içmeye karar vermişler.`,
-        `Doğa ile iç içe olmak insana huzur verir, huzurluyken ise zaman hızlı geçer bu bilinen bir gerçektir. 
-        ${isim1} de aynı şekilde sabah ormanda uyuyakalınca zamanın nasıl geçtiğini fark etmemiş güneş batmak üzere iken uyanmıştı. 
-        Karşısına ${hayvan1} sürülerinin çıkmasından korkuyordu çünkü yapayalnızdı, 
-        etrafta sadece uyuyakaldığı hamak ve yanında getirdiği ${eşya1} vardı. 
-        Telefonunun şarjı ise yatarken podcast dinlediği için bitmişti. Kim bilir, belki de ${aile1} ${isim1} arayıp ulaşamamış çok endişelenmişti. 
-        ${isim1} düşünmeden edemiyordu, hamağını toplayıp ${eşya1}i sırtlayıp “Kimse yok mu!” diye bağırdı. 
-        Uzaklardan ${cümle1} diye bir ses geldi, bu ses ${isim1}’i rahatlatmıştı, sesin geldiği yere doğru gitti, yaşlı bir kadın ile karşı karşıyaydı, 
-        kadın tekrar ${cümle1} dedi ve gülümsedi. ${isim1}, “Pardon hanımefendi, acaba telefonunuzu kullanabilir miyim? 
-        Şarjım bitti de ${aile1}mı aramam gerekiyor.” dedi. Kadın ise üçüncü kez ${cümle1} dedi, ${isim1} korkmaya başlamıştı, 
-        teni ${renk1} rengine bürünmeye başladı. Kadın ${isim1}’in sırtından ${eşya1}i alıp telefonunu uzattı ${cümle1} diye yineledi ve kayıplara karıştı, 
-        ${isim1} ise titreye titreye önce polisi sonra ${aile1}sini aradı.`,
-        `Bu yılki ${eşya1} festivaline ${şehir1} ev sahipliği yapıyordu, ${sayi1} yıldır devam eden bu festival için herkes çok heyecanlıydı, 
-        ${şehir1} halkı sabah erkenden uyanıp geleneksel olarak ${renk1} renkli ${kıyafet1} giymiş, 
-        yanaklarına bitkisel boyalarla ${eşya1} çizmişlerdi. ${isim2} yanına bir sepet ${yiyecek1} alarak sokağa çıkmış festival için stant kuran bireyleri selamlamaya başlamıştı. 
-        Sokağın başında ${isim1} ve ${isim3} festivalin sloganı olarak “${cümle2}” yazan bir pankart asıyorlardı, 
-        ${isim2} onları da selamlayarak “Kolay gelsin” dedi ve yoluna devam etti. 
-        İleride ${aile1}si ile beraber stant açan ${meslek1} Salih bey vardı, festival ziyaretçilerine satmak için ${eşya1} şeklinde kurabiyeler yapmışlardı, 
-        ${isim2} birkaç kurabiye satın alarak Salih bey ve ${aile1}sine biraz ${yiyecek1} ikram etti. Çok güzel bir gün olacağa benziyordu, 
-        çocuklar sokakta hep bir ağızdan ${cümle2} diyerek koşturuyorlardı, ${isim2} onlara da ${yiyecek1} ikram ediyordu. Herkes çok mutluydu.`, 
-    ];
-
+            // Create an array of stories
+            var stories = [
+                `Bir zamanlar, ${isim1} ve ${isim2} çorba içmek için ${şehir1}'a gitmeye karar vermişler. 
+                Bunun için Sabiha Gökçen'e gidip ${meslek1} olarak çalışan bir pilotun kullandığı ${hayvan1} şeklinde bir uçağa binmişler. 
+                Uçak havalanırken etrafta muhteşem ${şehir1} manzaraları gördüler ve harika vakit geçirdiler.`,
+                `${isim1}, ${şehir1} adlı şehirde çok ünlü bir ${meslek1} olmuş ve herkes onun hayvan sevgisinden bahsedermiş. 
+                Bir gün ${isim2} onu ziyarete gelmiş ve yanında sevimli bir ${hayvan1} getirmiş. İkisi birlikte ${şehir1} sokaklarında keyifli bir gezi yapmışlar.`
+            ];
 
             // Randomly choose a story
             var randomIndex = Math.floor(Math.random() * stories.length);
