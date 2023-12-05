@@ -6,7 +6,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-color: black;
+            background-color: blue;
             color: white;
         }
         #chat-container {
@@ -14,7 +14,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            height: 900vh;
         }
         #chatbox {
             border: 1px solid #ccc;
@@ -45,22 +45,22 @@
 </head>
 <body>
     <div id="chat-container">
-        <img src="https://media.licdn.com/dms/image/D4D03AQGK_6PkDFZDQA/profile-displayphoto-shrink_800_800/0/1664648684467?e=2147483647&v=beta&t=sC6Iofh9fLtBdEVosfPUrGKHTpbRKJ0RKb-0Prn-NOQ" alt="Your Picture">
+        <img src="https://tr.web.img4.acsta.net/c_310_420/medias/nmedia/18/35/93/03/19459512.jpg" alt="Your Picture">
         <div id="chatbox">
-            <p>Elif: Merhaba, ben Elif</p>
+            <p>Bebek yiyici: Merhaba, bebeğin var mı?</p>
         </div>
-        <input type="text" id="userInput" placeholder="Type your message...">
+        <input type="text" id="userInput" placeholder="Bebek yiyiciye cevap ver">
         <button onclick="sendMessage()">Submit</button>
     </div>
 
     <script>
         // Define the chatbot responses in Turkish
         const chatbotResponses = [
-            { user: "selam", response: "Selam" },
+            { user: "yok", response: "iyi, başka bebek bulur yerim" },
             { user: "Merhaba", response: "Merhabaa" },
             { user: "selamm", response: "Selam" },
             { user: "Merhabaa", response: "Merhabaa" },
-            { user: "Merhaba Elif", response: "Merhaba canım" },
+            { user: "Merhaba", response: "Merhaba canım" },
             { user: "seni seviyorum", response: "külliyen yalan" },
             { user: "naber", response: "hiiç, senden naber" },
             { user: "beni seviyor musun?", response: "yoo, ben kimseyi sevmem" },
@@ -77,8 +77,9 @@
             { user: "iyiyim", response: "İyi, hep iyi olursun umarım" },
             { user: "görüşürüz", response: "Gitmeee" },
             { user: "anneni sikerim", response: "Siktir git kapat siteyi, küfür etmeye mi geldin" },	
-            { user: "hayatın amacı nedir?", response: "Hiçbir şey" },
-            { user: "görüşürüz", response: "Gitmeee" },
+            { user: "hayatın amacı nedir?", response: "götten seks" },
+            { user: "günaydın", response: "İbne Galatasaraaayyy ibne Galatasarayyy" },
+            { user: "allah var mı", response: "yok" },
             { user: "işsiz", response: "sensin işsiz" },
             { user: "bok", response: "bok bok bok" },
             { user: "parles-tu français", response: "Oui, je parle français!" },
@@ -116,7 +117,7 @@
                 }, 500); // Add a small delay to simulate the chatbot's "typing" time
             } else {
                 setTimeout(() => {
-                    displayMessage("Chatbot: Anlamadım ki, başka bir şey söylesene? Bebek gibiyim şu an her şeyi anlamıyorum.", false);
+                    displayMessage("Chatbot: Düzgün cevap ver bi bok anlamıyom dediğinden", false);
                 }, 500);
             }
         }
